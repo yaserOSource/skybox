@@ -47,3 +47,7 @@ skybox.scale.setScalar(1000);
 skybox.update = update;
 skybox.update();
 app.object.add(skybox);
+
+renderer.setAnimationLoop(() => {
+  update();
+});

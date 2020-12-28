@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 // import {BufferGeometryUtils} from 'BufferGeometryUtils';
-import {scene, renderer, camera, runtime, world, physics, ui, app, appManager} from 'app';
+import {scene, renderer, camera, runtime, world, physics, ui, rig, app, appManager} from 'app';
 import {Sky} from './Sky.js';
 
 const localVector = new THREE.Vector3();
@@ -31,8 +31,10 @@ function update() {
   uniforms.mieCoefficient.value = effectController.mieCoefficient;
   uniforms.mieDirectionalG.value = effectController.mieDirectionalG;
 
+  const transforms = rig.getRigTransforms();
+  const {position} = transforms[0];
   // effectController.azimuth = (0.05 + ((Date.now() / 1000) * 0.1)) % 1;
-  effectController.azimuth = 0.25;
+  effectController.azimuth = Math.min(Math.max(-position.z / 30, -0.3), 0.3);
   var theta = Math.PI * (effectController.inclination - 0.5);
   var phi = 2 * Math.PI * (effectController.azimuth - 0.5);
 

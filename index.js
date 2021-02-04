@@ -15,9 +15,9 @@ const localColor = new THREE.Color();
 const localColor2 = new THREE.Color();
 
 const effectController = {
-  turbidity: 2,
-  rayleigh: 3,
-  mieCoefficient: 0.2,
+  turbidity: 20,
+  rayleigh: 10,
+  mieCoefficient: 0.1,
   mieDirectionalG: 0.9999,
   inclination: 0, // elevation / inclination
   azimuth: 0, // Facing front,

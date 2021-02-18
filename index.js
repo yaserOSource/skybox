@@ -50,6 +50,6 @@ skybox.update = update;
 skybox.update();
 app.object.add(skybox);
 
-renderer.setAnimationLoop(() => {
+app.addEventListener('frame', () => {
   update();
 });

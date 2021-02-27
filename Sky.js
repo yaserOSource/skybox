@@ -210,13 +210,13 @@ Sky.SkyShader = {
 		'	float theta = acos( direction.y ); // elevation --> y-axis, [-pi/2, pi/2]',
 		'	float phi = atan( direction.z, direction.x ); // azimuth --> x-axis [-pi/2, pi/2]',
 		'	vec2 uv = vec2( phi, theta ) / vec2( 2.0 * pi, pi ) + vec2( 0.5, 0.0 );',
-		'	vec3 L0 = vec3( 0.1 ) * Fex;',
+		// '	vec3 L0 = vec3( 0.1 ) * Fex;',
 
 		// composition + solar disc
 		'	float sundisk = smoothstep( sunAngularDiameterCos, sunAngularDiameterCos + 0.00002, cosTheta );',
-		'	L0 += ( vSunE * 19000.0 * Fex ) * sundisk;',
+		// '	L0 += ( vSunE * 19000.0 * Fex ) * sundisk;',
 
-		'	vec3 texColor = ( Lin + L0 ) * 0.04 + vec3( 0.0, 0.0003, 0.00075 );',
+		'	vec3 texColor = ( Lin /*+ L0 */ ) * 0.04 + vec3( 0.0, 0.0003, 0.00075 );',
 
 		'	vec3 retColor = pow( texColor, vec3( 1.0 / ( 1.2 + ( 1.2 * vSunfade ) ) ) );',
 

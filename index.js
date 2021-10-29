@@ -55,6 +55,8 @@ export default () => {
   // skybox.update();
   // app.object.add(skybox);
   app.add(skybox);
+  
+  app.setComponent('renderPriority', 'low');
 
   return app;
 };

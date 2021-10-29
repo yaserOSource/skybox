@@ -3,7 +3,7 @@ import * as THREE from 'three';
 // import {scene, renderer, camera, runtime, world, physics, ui, rig, app, appManager} from 'app';
 import {Sky} from './Sky.js';
 import metaversefile from 'metaversefile';
-const {useFrame, useLocalPlayer} = metaversefile;
+const {useApp, useFrame, useLocalPlayer} = metaversefile;
 
 /* const localVector = new THREE.Vector3();
 const localVector2 = new THREE.Vector3();
@@ -17,6 +17,8 @@ const localColor = new THREE.Color();
 const localColor2 = new THREE.Color(); */
 
 export default () => {
+  const app = useApp();
+  
   const effectController = {
     turbidity: 20,
     rayleigh: 10,
@@ -52,6 +54,7 @@ export default () => {
   // skybox.update = update;
   // skybox.update();
   // app.object.add(skybox);
+  app.add(skybox);
 
-  return skybox;
+  return app;
 };

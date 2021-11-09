@@ -56,6 +56,8 @@ Sky.SkyShader = {
 	},
 
 	vertexShader: /* glsl */`
+		${THREE.ShaderChunk.common}
+
 		uniform vec3 sunPosition;
 		uniform float rayleigh;
 		uniform float turbidity;
@@ -68,6 +70,8 @@ Sky.SkyShader = {
 		varying vec3 vBetaR;
 		varying vec3 vBetaM;
 		varying float vSunE;
+
+		${THREE.ShaderChunk.logdepthbuf_pars_vertex}
 
 		// constants for atmospheric scattering
 		const float e = 2.71828182845904523536028747135266249775724709369995957;
@@ -125,6 +129,8 @@ Sky.SkyShader = {
 			// mie coefficients
 			vBetaM = totalMie( turbidity ) * mieCoefficient;
 
+			${THREE.ShaderChunk.logdepthbuf_vertex}
+
 		}`,
 
 	fragmentShader: /* glsl */`
@@ -137,6 +143,8 @@ Sky.SkyShader = {
 
 		uniform float mieDirectionalG;
 		uniform vec3 up;
+		
+		${THREE.ShaderChunk.logdepthbuf_pars_fragment}
 
 		const vec3 cameraPos = vec3( 0.0, 0.0, 0.0 );
 
@@ -211,6 +219,8 @@ Sky.SkyShader = {
 
 			#include <tonemapping_fragment>
 			#include <encodings_fragment>
+
+			${THREE.ShaderChunk.logdepthbuf_fragment}
 
 		}`
 

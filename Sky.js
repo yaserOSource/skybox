@@ -7,6 +7,8 @@ import {
 	Vector3
 } from 'three';
 
+import * as THREE from 'three';
+
 /**
  * Based on "A Practical Analytic Model for Daylight"
  * aka The Preetham Model, the de facto standard analytic skydome model

@@ -52,7 +52,7 @@ export default () => {
   const skybox = new Sky();
   skybox.scale.setScalar(1000);
   app.add(skybox);
-  skybox.updateMatrix();
+  skybox.updateMatrixWorld();
   app.setComponent('renderPriority', 'low');
 
   return app;
